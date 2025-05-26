@@ -1,0 +1,20 @@
+services:
+  chrome:
+    # Selenium Standalone with Chromium image is used, compatible with ARM (e.g. for Apple Silicon/M1)
+    image: selenium/standalone-chromium:latest
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    shm_size: '2gb'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    image: selenium-python-app
+    depends_on:
+      chrome:
+        condition: service_healthy
