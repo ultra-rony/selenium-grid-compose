@@ -17,8 +17,7 @@ cd selenium-grid-compose
 docker-compose up --build
 ```
 
-VNC Viewer for Chrome Browser (if enabled). default password `secret`
-`http://localhost:7900/`
+VNC Viewer for Chrome Browser (if enabled) `http://localhost:7900/`. default password `secret`
 
 Selenium Grid Dashboard
 `http://localhost:4444/`
